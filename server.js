@@ -44,7 +44,37 @@ let forMethod = {
 
     post: function (req, res) {
 
-        res.end('sure');
+        var body = '';
+
+        req.on('data', function (chunk) {
+
+            body += chunk;
+
+        });
+
+        req.on('end', function () {
+
+            // parse what should be JSON
+            body = JSON.parse(body);
+
+            if (body.iwant) {
+
+                if (body.iwant === 'theanwser') {
+
+                    res.end('42');
+
+                } else {
+
+                    res.end('sorry');
+
+                }
+
+            } else {
+
+                res.end('sorry');
+
+            }
+        });
 
     }
 
