@@ -1,6 +1,7 @@
 let http = require('http'),
 fs = require('fs'),
 path = require('path'),
+url = require('url'),
 port = process.argv[2] || 8080,
 dir_public = 'public';
 
@@ -44,7 +45,14 @@ let forMethod = {
 
     post: function (req, res) {
 
-        var body = '';
+        let body = '',
+        query = url.parse(req.url, true).query;
+
+        if (query) {
+
+            console.log(query);
+
+        }
 
         req.on('data', function (chunk) {
 
