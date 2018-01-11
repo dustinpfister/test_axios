@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>test_axios</title>
+    </head>
+    <body>
+
+        <h2>Get example: </h2>
+        <hr>
+        <p>This is just a simple example of using axios.get. here I am using the method to get the axios source code, and inject it into an textarea element</p>
+        <script src="/js/axios.js"></script>
+        <textarea id="text" cols=100 rows=20>
+        </textarea>
+        <script>
+
+            axios.get('/js/axios.js').then(function(res){
+
+                document.getElementById('text').innerHTML = res.data
+
+            });
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>test_axios</title>
+    </head>
+    <body>
+
+        <h2>Post example: </h2>
+        <hr>
+
+        <p>simple post example</p>
+        <script src="/js/axios.js"></script>
+        <script>
+
+var send = function () {
+
+    var el = document.getElementById('text'),
+    text = el.value;
+
+    axios.post('/',{text: text}).then(function(res){
+
+        //document.getElementById('text').innerHTML = res.data
+        console.log(res);
+
+    });
+     
+
+};
+
+        </script>
+        <textarea id="text" cols=100 rows=20>type the text you want to send here.</textarea><br><br> 
+        <input type="submit" value="send" onclick="send()">
+
+
+    </body>
+</html>
